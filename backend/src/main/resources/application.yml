@@ -1,0 +1,9 @@
+server:
+  port: 8898
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /
+spring:
+  thymeleaf:
+    cache: false
