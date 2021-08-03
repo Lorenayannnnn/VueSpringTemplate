@@ -10,16 +10,15 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/force': {
-        //target: 'http://47.94.139.47:8898',
-        //target: 'http://172.27.101.226:8898',
-        target: 'http://localhost:8898',
-        changeOrigin: true,
-        secure: false,
-        pathRewrite: {
-          '^/v1': '/v1',
-        },
-      }
+      // 配置后端代理
+      // '/': {
+      //   target: 'http://localhost:8898',
+      //   changeOrigin: true,
+      //   secure: false,
+      //   pathRewrite: {
+      //     '^/v1': '/v1',
+      //   },
+      // }
     },
 
     // Various Dev Server settings

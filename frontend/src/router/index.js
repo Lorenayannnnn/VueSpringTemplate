@@ -2,12 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // PC端
-import PcIndex from '@/components/pcIndex'
-import PcHome from '@/components/pc/pcHome'
+import PcIndex from '@/pages/pcIndex'
+import PcHome from '@/pages/pc/pcHome'
 
 // 移动端
-import MobileIndex from '@/components/mobileIndex'
-import MobileHome from '@/components/mobile/mobileHome'
+import MobileIndex from '@/pages/mobileIndex'
+import MobileHome from '@/pages/mobile/mobileHome'
 
 Vue.use(Router)
 
@@ -18,6 +18,7 @@ Router.prototype.replace = function replace(location) {
 };
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/pc',
