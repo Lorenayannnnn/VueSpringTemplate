@@ -2,16 +2,20 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // PC端
-import PcIndex from '@/pages/pcIndex'
-import PcHome from '@/pages/pc/pcHome'
+const PcIndex = () => import('@/pages/pcIndex')
+const PcHome = () => import('@/pages/pc/pcHome')
 
 // 移动端
-import MobileIndex from '@/pages/mobileIndex'
-import MobileHome from '@/pages/mobile/mobileHome'
+const MobileIndex = () => import('@/pages/mobileIndex')
+const MobileHome = () => import('@/pages/mobile/mobileHome')
 
 Vue.use(Router)
 
 // 避免重复路由
+const originalPush = Router.prototype.push;
+Router.prototype.push = function replace(location) {
+  return originalReplace.call(this, location).catch(err => err);
+};
 const originalReplace = Router.prototype.replace;
 Router.prototype.replace = function replace(location) {
   return originalReplace.call(this, location).catch(err => err);

@@ -8,16 +8,19 @@
 export default {
   name: 'App',
   mounted() {
-    var isMobile = this._isMobile()
-    if (isMobile) {
-      if (!this.$router.currentRoute.path.includes('mobile')) {
+    let isMobile = this._isMobile()
+    if(window.name === ""){
+      // 判断是首次加载
+      if (isMobile) {
         this.$router.replace('/mobile/home');
-      }
-    } else if (!isMobile) {
-      if (!this.$router.currentRoute.path.includes('pc')) {
+      } else {
         this.$router.replace('/pc/home');
       }
+      window.name = "refresh";
     }
+  },
+  destroyed() {
+    window.name = "";
   },
   methods: {
     // 判断是PC还是移动端
@@ -29,6 +32,7 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,5 +44,12 @@ html, body, #app {
   height: 100%;
   width: 100%;
   margin: 0;
+}
+
+h1 {
+  font-family: 'Merriweather', serif;
+}
+.el-button {
+  border-radius: 10px;
 }
 </style>

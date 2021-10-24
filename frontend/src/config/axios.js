@@ -5,7 +5,7 @@ var loading = null;
 Axios.interceptors.request.use((config) => {
   loading = Loading.service({
     lock: true,
-    text: '首次加载稍慢，请稍后...',
+    text: 'Loading...',
     spinner: 'el-icon-loading',
     background: 'white'
   })
